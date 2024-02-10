@@ -22,6 +22,14 @@
   }
 
   showCookies();
+
+  if (navigator.cookieEnabled) {
+  alert('Anda memiliki izin untuk mengakses cookie');alert(document.cookie)
+} else {
+  alert('Anda tidak memiliki izin untuk mengakses cookie')
+}
+
   </script>
 </body>
 </html>
+
