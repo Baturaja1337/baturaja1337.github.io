@@ -2,32 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Download Cookies</title>
+  <title>Cookies</title>
 </head>
 <body>
-  <h1>Download Cookies</h1>
-  <p>Click the button below to download your cookies as a TXT file.</p>
-  <button id="download-cookies">Download Cookies</button>
+  <h1>Cookies</h1>
+  <div id="cookies"></div>
 
   <script>
-  function downloadCookies() {
+  function showCookies() {
     var cookies = document.cookie.split(';');
     var data = '';
     for (var i = 0; i < cookies.length; i++) {
       var cookie = cookies[i].trim();
       var parts = cookie.split('=');
-      data += parts[0] + '=' + parts[1] + '\n';
+      data += 'Nama Cookie: ' + parts[0] + '<br>';
+      data += 'Nilai Cookie: ' + parts[1] + '<br><br>';
     }
-    var blob = new Blob([data], {type: 'text/plain'});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = 'cookies.txt';
-    a.click();
+    document.getElementById('cookies').innerHTML = data;
   }
 
-  // Add event listener to the button
-  document.getElementById('download-cookies').addEventListener('click', downloadCookies);
+  showCookies();
   </script>
 </body>
 </html>
